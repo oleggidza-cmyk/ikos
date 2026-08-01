@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Ikos — шины, диски, масла и автоковрики с доставкой по Казахстану.">
+  <title>Ikos — шины и диски в Казахстане</title>
+  <style>
+
+:root{
+  --black:#101214;
+  --black-2:#1c2024;
+  --red:#e3272f;
+  --red-dark:#a90f16;
+  --red-light:#ff4a50;
+  --soft:#f4f5f7;
+  --line:#dfe2e6;
+  --white:#fff;
+  --text:#17191b;
+  --muted:#666b71;
+  --shadow:0 18px 45px rgba(20,24,28,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 0%,rgba(227,39,47,.06),transparent 24%),
+    linear-gradient(#fff,#fafbfc);
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+
+.top{
+  background:linear-gradient(180deg,#171a1e,#0c0e10);
+  color:#fff;
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+  position:relative;
+  z-index:30;
+}
+.topbar{height:78px;display:flex;align-items:center;gap:30px}
+.logo{display:flex;align-items:center;gap:11px;font-size:25px;font-weight:900;letter-spacing:2px}
+.logo-mark{
+  display:grid;place-items:center;width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(145deg,var(--red-light),var(--red-dark));
+  border:2px solid rgba(255,255,255,.25);
+  box-shadow:0 8px 16px rgba(227,39,47,.38),inset 0 2px 4px rgba(255,255,255,.28),inset 0 -4px 8px rgba(0,0,0,.22);
+  font-style:italic;
+}
+.top-info{margin-left:auto;color:#c9cdd1;font-size:14px}
+.phone{font-weight:900;text-shadow:0 1px 1px #000}
+
+.nav{
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  position:sticky;top:0;z-index:20;
+  box-shadow:0 8px 20px rgba(20,24,28,.07);
+}
+.nav-inner{display:flex;align-items:center;gap:28px;height:56px;font-size:14px;font-weight:800}
+.nav-inner>a{position:relative}
+.nav-inner>a:after{
+  content:"";position:absolute;left:0;right:100%;bottom:-8px;height:3px;
+  background:linear-gradient(90deg,var(--red),var(--red-light));border-radius:20px;transition:.2s;
+}
+.nav-inner>a:hover:after{right:0}
+
+.cart-btn{
+  margin-left:auto;border:1px solid rgba(255,255,255,.25);
+  background:linear-gradient(180deg,var(--red-light),var(--red-dark));
+  color:#fff;padding:11px 16px;border-radius:11px;font-weight:900;cursor:pointer;
+  box-shadow:0 7px 0 #7d0e13,0 12px 20px rgba(227,39,47,.28),inset 0 2px 1px rgba(255,255,255,.28);
+  transition:.16s transform,.16s box-shadow;
+}
+.cart-btn:hover{transform:translateY(-2px);box-shadow:0 9px 0 #7d0e13,0 16px 24px rgba(227,39,47,.32),inset 0 2px 1px rgba(255,255,255,.28)}
+.cart-btn:active{transform:translateY(5px);box-shadow:0 2px 0 #7d0e13,0 7px 14px rgba(227,39,47,.2)}
+.cart-btn span{background:#fff;color:#111;border-radius:20px;padding:2px 7px;margin-left:4px}
+
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 84% 35%,rgba(227,39,47,.14),transparent 20%),
+    linear-gradient(120deg,#eef0f3 0%,#fff 58%,#f6f7f8 100%);
+}
+.hero:before{
+  content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+  border:55px solid rgba(227,39,47,.05);right:-70px;top:-80px;
+}
+.hero:after{
+  content:"";position:absolute;left:-100px;bottom:-160px;width:320px;height:320px;
+  background:linear-gradient(145deg,rgba(0,0,0,.04),transparent);transform:rotate(25deg);border-radius:50%;
+}
+.hero-grid{min-height:545px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;position:relative;z-index:2}
+.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:900;color:var(--red);margin-bottom:12px}
+h1{font-size:66px;line-height:.96;margin:0 0 24px;letter-spacing:-3px;text-shadow:0 2px 0 #fff}
+h2{font-size:38px;line-height:1.1;margin:0 0 15px;letter-spacing:-1.5px}
+p{line-height:1.6;color:var(--muted)}
+.hero p{font-size:19px;max-width:600px}
+.hero-actions{display:flex;gap:13px;margin:30px 0}
+
+.btn{
+  position:relative;
+  display:inline-flex;justify-content:center;align-items:center;
+  border:1px solid transparent;border-radius:11px;padding:14px 22px;
+  font-weight:900;cursor:pointer;
+  transition:.16s transform,.16s box-shadow,.16s filter;
+  overflow:hidden;
+}
+.btn:before{
+  content:"";position:absolute;left:12%;right:12%;top:2px;height:42%;
+  border-radius:100px;background:linear-gradient(rgba(255,255,255,.32),rgba(255,255,255,0));
+  pointer-events:none;
+}
+.btn:hover{transform:translateY(-2px);filter:saturate(1.08)}
+.btn:active{transform:translateY(4px)}
+.primary{
+  background:linear-gradient(180deg,var(--red-light),var(--red-dark));
+  color:#fff;border-color:rgba(255,255,255,.25);
+  box-shadow:0 7px 0 #7d0e13,0 12px 22px rgba(227,39,47,.28),inset 0 1px 2px rgba(255,255,255,.25);
+}
+.primary:hover{box-shadow:0 9px 0 #7d0e13,0 16px 25px rgba(227,39,47,.32),inset 0 1px 2px rgba(255,255,255,.25)}
+.primary:active{box-shadow:0 2px 0 #7d0e13,0 6px 12px rgba(227,39,47,.22)}
+.ghost{
+  border-color:#c6c9cd;
+  background:linear-gradient(180deg,#fff,#e9ebee);
+  color:#202327;
+  box-shadow:0 6px 0 #b9bdc2,0 10px 20px rgba(20,24,28,.12),inset 0 1px 2px #fff;
+}
+.ghost:active{box-shadow:0 2px 0 #b9bdc2,0 5px 10px rgba(20,24,28,.1)}
+.big{padding:18px 29px}
+.full{width:100%}
+
+.chips{display:flex;gap:9px;flex-wrap:wrap}
+.chips span{
+  background:linear-gradient(180deg,#fff,#f0f1f3);
+  border:1px solid var(--line);padding:9px 13px;border-radius:100px;
+  font-size:13px;font-weight:800;box-shadow:0 4px 10px rgba(20,24,28,.07),inset 0 1px #fff;
+}
+
+.hero-wheel{display:grid;place-items:center;perspective:1000px}
+.wheel{
+  width:380px;height:380px;border:44px solid #1b1d20;border-radius:50%;
+  display:grid;place-items:center;
+  box-shadow:
+    0 30px 55px rgba(0,0,0,.28),
+    0 10px 0 #0b0d0f,
+    inset 0 0 0 12px #555,
+    inset 0 0 35px #000;
+  background:repeating-conic-gradient(#d0d2d5 0 12deg,#3a3d42 12deg 24deg);
+  transform:rotateX(6deg) rotateY(-7deg);
+}
+.hub{
+  width:112px;height:112px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 25%,#42464b,#111315 60%);
+  color:#fff;border:10px solid #9ea2a7;font-weight:900;
+  box-shadow:0 10px 20px rgba(0,0,0,.45),inset 0 4px 8px rgba(255,255,255,.12);
+}
+
+.finder{
+  margin-top:-42px;position:relative;z-index:3;
+  background:linear-gradient(180deg,#fff,#f7f8f9);
+  box-shadow:0 20px 50px rgba(20,24,28,.16),0 8px 0 #dfe2e5;
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:16px;padding:27px;
+  display:grid;grid-template-columns:.7fr 1.3fr;gap:30px;align-items:center;
+}
+.finder h2{font-size:25px}.finder p{margin:0}
+.finder form{display:grid;grid-template-columns:1fr .7fr 1.2fr auto;gap:8px}
+
+input,select{
+  border:1px solid #d4d7db;border-radius:10px;padding:14px;background:linear-gradient(180deg,#fff,#f8f9fa);
+  font:inherit;box-shadow:inset 0 2px 4px rgba(20,24,28,.06),0 2px 0 #fff;
+}
+input:focus,select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(227,39,47,.12),inset 0 2px 4px rgba(20,24,28,.05)}
+
+.catalog{padding:95px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.search{width:330px}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:28px 0}
+.filter{
+  border:1px solid var(--line);background:linear-gradient(180deg,#fff,#eceef1);
+  border-radius:100px;padding:10px 16px;font-weight:800;cursor:pointer;
+  box-shadow:0 4px 0 #d0d3d7,0 7px 12px rgba(20,24,28,.08);transition:.15s;
+}
+.filter:hover{transform:translateY(-2px)}
+.filter:active{transform:translateY(3px);box-shadow:0 1px 0 #d0d3d7}
+.filter.active{
+  background:linear-gradient(180deg,#2b2f34,#111315);color:#fff;border-color:#111;
+  box-shadow:0 5px 0 #000,0 9px 16px rgba(0,0,0,.18);
+}
+
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{
+  border:1px solid #dfe2e6;border-radius:15px;overflow:hidden;
+  background:linear-gradient(180deg,#fff,#fafafa);
+  box-shadow:0 10px 0 #e4e6e9,0 16px 30px rgba(20,24,28,.09);
+  transition:.2s transform,.2s box-shadow;
+}
+.product:hover{transform:translateY(-7px);box-shadow:0 15px 0 #e4e6e9,0 24px 42px rgba(20,24,28,.15)}
+.product-img{
+  height:195px;background:
+    radial-gradient(circle at 35% 25%,#fff 0,#e8eaed 58%,#ced2d6 100%);
+  display:grid;place-items:center;font-size:88px;
+  border-bottom:1px solid #d8dbdf;
+  text-shadow:0 14px 20px rgba(0,0,0,.16);
+}
+.product-body{padding:18px}
+.product-cat{font-size:11px;text-transform:uppercase;color:#888;font-weight:900}
+.product h3{margin:7px 0 4px;font-size:18px}
+.spec{font-size:13px;color:#777;min-height:38px}
+.price{font-size:22px;font-weight:900;margin:15px 0}
+
+.dark-section{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 10%,rgba(227,39,47,.12),transparent 25%),
+    linear-gradient(180deg,#171a1e,#0b0d0f);
+  color:#fff;padding:90px 0;
+}
+.dark-section:after{
+  content:"";position:absolute;right:-80px;bottom:-120px;width:300px;height:300px;
+  border-radius:50%;border:48px solid rgba(255,255,255,.03);
+}
+.light h2{color:#fff}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;z-index:1}
+.benefits article{
+  border:1px solid #34373b;border-radius:14px;padding:26px;
+  background:linear-gradient(145deg,#22262b,#15181c);
+  box-shadow:0 10px 0 #090a0c,0 18px 30px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.05);
+}
+.benefits b{color:var(--red);font-size:28px;text-shadow:0 4px 10px rgba(227,39,47,.35)}
+.benefits p{color:#aeb1b4}
+
+.info{padding:90px 0;display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.info>div{
+  background:linear-gradient(180deg,#fff,#f5f6f8);
+  border:1px solid var(--line);border-radius:16px;padding:30px;
+  box-shadow:0 9px 0 #e2e4e7,0 18px 35px rgba(20,24,28,.09);
+}
+.contacts{
+  background:
+    radial-gradient(circle at 10% 20%,rgba(227,39,47,.08),transparent 20%),
+    linear-gradient(180deg,#f2f3f4,#e8eaed);
+  padding:70px 0;
+  border-top:1px solid #dde0e3;
+}
+.contact-grid{display:flex;justify-content:space-between;align-items:center;gap:25px}
+.contact-grid div{max-width:700px}
+footer{background:#08090a;color:#aeb1b4;padding:27px 0;font-size:13px}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(5px);z-index:100;display:grid;place-items:center;padding:15px}
+.modal-card{
+  background:linear-gradient(180deg,#fff,#f6f7f8);
+  width:min(560px,100%);max-height:85vh;overflow:auto;border-radius:17px;padding:27px;position:relative;
+  box-shadow:0 20px 0 #b9bdc2,0 35px 80px rgba(0,0,0,.35),inset 0 1px 0 #fff;
+}
+.close{position:absolute;right:14px;top:10px;border:0;background:none;font-size:30px;cursor:pointer}
+.cart-line{display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.remove{border:0;background:linear-gradient(#f5f5f5,#dfe2e5);border-radius:7px;padding:8px;cursor:pointer;box-shadow:0 3px 0 #c8ccd0}
+.cart-total{text-align:right;font-size:20px;padding:20px 0}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;min-height:auto;padding:70px 0}
+  .hero-wheel{display:none}.finder{grid-template-columns:1fr}.finder form{grid-template-columns:1fr 1fr}
+  .products{grid-template-columns:repeat(2,1fr)}.benefits{grid-template-columns:1fr 1fr}.top-info{display:none}
+}
+@media(max-width:600px){
+  h1{font-size:44px}.nav-inner>a{display:none}.nav-inner{justify-content:flex-end}
+  .topbar{height:64px}.phone{margin-left:auto;font-size:14px}.finder form{grid-template-columns:1fr}
+  .products{grid-template-columns:1fr}.benefits,.info{grid-template-columns:1fr}.search{width:100%}
+  .section-head,.contact-grid{align-items:stretch;flex-direction:column}.catalog{padding:68px 0}.hero-actions{flex-direction:column}
+}
+
+.hero-badge{
+  display:inline-block;margin-bottom:18px;padding:9px 13px;border-radius:10px;
+  background:linear-gradient(180deg,#fff,#eceef1);border:1px solid #d9dce0;
+  font-size:13px;font-weight:800;color:#3b3f44;
+  box-shadow:0 5px 0 #d2d5d9,0 9px 16px rgba(20,24,28,.08);
+}
+
+
+.modal[hidden]{display:none!important}
+body.modal-open{overflow:hidden}
+
+
+.product-img{padding:12px;overflow:hidden}
+.product-img img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 12px 12px rgba(0,0,0,.18))}
+.wheel-art{width:135px;height:135px;border-radius:50%;display:grid;place-items:center;background:repeating-conic-gradient(#d8dadd 0 12deg,#33373c 12deg 24deg);border:18px solid #202327;box-shadow:0 15px 22px rgba(0,0,0,.25),inset 0 0 0 7px #777;color:#fff;font-weight:900;font-size:20px}
+.catalog-note{margin:18px 0 0;padding:13px 16px;border-radius:10px;background:#fff4d9;border:1px solid #f0d38b;color:#654d10;font-size:13px;line-height:1.5}
+
+
+.reviews-section{
+  padding:90px 0;
+  background:
+    radial-gradient(circle at 8% 10%,rgba(227,39,47,.07),transparent 22%),
+    linear-gradient(180deg,#fff,#f4f5f7);
+}
+.reviews-summary{
+  min-width:150px;padding:15px 18px;border-radius:14px;
+  background:linear-gradient(180deg,#fff,#eceef1);
+  border:1px solid var(--line);
+  box-shadow:0 7px 0 #d6d9dd,0 12px 24px rgba(20,24,28,.1);
+  text-align:center;
+}
+.reviews-summary strong{display:block;font-size:34px;line-height:1;color:var(--red)}
+.reviews-summary span{font-size:12px;color:#666;font-weight:800}
+.reviews-disclaimer{
+  margin:22px 0;padding:13px 16px;border-radius:10px;
+  background:#fff8e8;border:1px solid #efd38a;color:#6b5417;
+  font-size:13px;line-height:1.5
+}
+.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.review-card{
+  background:linear-gradient(180deg,#fff,#f8f9fa);
+  border:1px solid #dfe2e6;border-radius:15px;padding:20px;
+  box-shadow:0 8px 0 #e2e4e7,0 16px 28px rgba(20,24,28,.08);
+  transition:.2s transform,.2s box-shadow;
+}
+.review-card:hover{transform:translateY(-5px);box-shadow:0 13px 0 #e2e4e7,0 23px 36px rgba(20,24,28,.13)}
+.review-top{display:flex;align-items:center;gap:12px}
+.review-avatar{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--red-light),var(--red-dark));
+  color:#fff;font-weight:900;
+  box-shadow:0 5px 0 #8b1016,0 9px 14px rgba(227,39,47,.24);
+}
+.review-top h3{margin:0;font-size:17px}
+.review-top span{font-size:12px;color:#777}
+.review-stars{margin:16px 0 8px;color:#f5a400;font-size:18px;letter-spacing:2px}
+.review-card p{margin:0;font-size:14px}
+@media(max-width:900px){.reviews-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}.reviews-summary{width:100%}}
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap topbar">
+    <a class="logo" href="#"><span class="logo-mark">I</span><span>IKOS</span></a>
+    <div class="top-info">Петропавловск · Доставка по всему Казахстану</div>
+    <a class="phone" href="https://wa.me/77023890318">+7 702 389 03 18</a>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#catalog">Каталог</a><a href="#advantages">Преимущества</a>
+    <a href="#payment">Оплата</a><a href="#delivery">Доставка</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>
+    <button id="cartBtn" class="cart-btn">Корзина <span id="cartCount">0</span></button>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Автомобильные шины и диски</div>
+      <h1>Уверенность<br>на каждой дороге</h1>
+      <p>Подберём колёса под ваш автомобиль. Оплата через Kaspi Bank, доставка по всему Казахстану.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#catalog">Перейти в каталог</a>
+        <a class="btn ghost" href="https://wa.me/77023890318?text=Здравствуйте!%20Нужна%20помощь%20с%20подбором%20шин%20или%20дисков.">Подбор в WhatsApp</a>
+      </div>
+      <div class="chips"><span>Kaspi 0012 / Red / Gold</span><span>Бесплатная доставка от комплекта</span></div>
+    </div>
+    <div class="hero-wheel" aria-label="Фирменный знак Ikos">
+      <div class="wheel"><div class="hub">IKOS</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="finder wrap">
+  <div>
+    <h2>Быстрый подбор</h2>
+    <p>Укажите данные автомобиля — менеджер проверит совместимость.</p>
+  </div>
+  <form id="finderForm">
+    <input id="car" required placeholder="Марка и модель">
+    <input id="year" placeholder="Год выпуска">
+    <select id="need"><option>Нужны шины</option><option>Нужны диски</option><option>Комплект шин и дисков</option></select>
+    <button class="btn primary" type="submit">Подобрать</button>
+  </form>
+</section>
+
+<section id="catalog" class="catalog wrap">
+  <div class="section-head"><div><div class="eyebrow">Каталог Ikos</div><h2>Популярные товары</h2></div>
+  <input id="search" class="search" placeholder="Поиск по названию или бренду"></div>
+  <div id="filters" class="filters"></div>
+  <div id="products" class="products"></div><div class="catalog-note">Цены собраны из открытых каталогов Казахстана и могут измениться. Наличие и итоговую стоимость менеджер Ikos подтверждает перед оплатой. Для части позиций используется универсальное изображение категории — фактический дизайн уточняйте в WhatsApp.</div>
+</section>
+
+<section id="advantages" class="dark-section">
+  <div class="wrap">
+    <div class="section-head light"><div><div class="eyebrow">Почему Ikos</div><h2>Покупка без лишних сложностей</h2></div></div>
+    <div class="benefits">
+      <article><b>01</b><h3>Точный подбор</h3><p>Проверяем размер, разболтовку, вылет и совместимость с автомобилем.</p></article>
+      <article><b>02</b><h3>Оплата Kaspi</h3><p>Оплата производится через Kaspi Bank: 0012, Red и Gold.</p></article>
+      <article><b>03</b><h3>Доставка по РК</h3><p>Отправляем товары во все регионы Казахстана.</p></article>
+      <article><b>04</b><h3>Доставка бесплатно</h3><p>При покупке одного комплекта шин или дисков и более.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="payment" class="info wrap">
+  <div><div class="eyebrow">Оплата</div><h2>Удобно через Kaspi Bank</h2><p>После подтверждения заказа менеджер отправит реквизиты или ссылку для оплаты. Поддерживаются Kaspi 0012, Kaspi Red и Kaspi Gold.</p></div>
+  <div id="delivery"><div class="eyebrow">Доставка</div><h2>По всему Казахстану</h2><p>Стоимость и срок зависят от города. При покупке комплекта и более доставка бесплатная.</p></div>
+</section>
+
+
+<section id="reviews" class="reviews-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Отзывы и клиентские ситуации</div>
+        <h2>Что говорят покупатели</h2>
+      </div>
+      <div class="reviews-summary">
+        <strong>4,8</strong>
+        <span>средняя оценка</span>
+      </div>
+    </div>
+    <div class="reviews-disclaimer">
+      Демонстрационные примеры отзывов для оформления сайта. После запуска их следует заменить на реальные отзывы покупателей.
+    </div>
+    <div class="reviews-grid">
+      
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">А</div>
+        <div>
+          <h3>Александр</h3>
+          <span>Павлодар</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Подобрали диски по параметрам автомобиля, всё подошло без проставок. Упаковано аккуратно.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">Е</div>
+        <div>
+          <h3>Ерлан</h3>
+          <span>Атырау</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Заказывал комплект зимних шин. Менеджер быстро ответил и отправил в тот же день.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">Д</div>
+        <div>
+          <h3>Дмитрий</h3>
+          <span>Караганда</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="4 из 5">★★★★☆</div>
+      <p>Доставка задержалась на один день из-за перевозчика, но меня заранее предупредили.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">А</div>
+        <div>
+          <h3>Айбек</h3>
+          <span>Шымкент</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="4 из 5">★★★★☆</div>
+      <p>Сначала прислали не тот размер, но магазин быстро организовал замену без доплаты.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">Н</div>
+        <div>
+          <h3>Нурлан</h3>
+          <span>Костанай</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Хорошо проконсультировали по вылету и разболтовке. Диски встали идеально.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">С</div>
+        <div>
+          <h3>Сергей</h3>
+          <span>Петропавловск</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Покупал шины и диски комплектом. Сделали хорошую скидку и всё быстро подготовили.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">А</div>
+        <div>
+          <h3>Арман</h3>
+          <span>Алматы</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Заказ оформил через WhatsApp. Всё понятно, без лишних звонков.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">М</div>
+        <div>
+          <h3>Марат</h3>
+          <span>Актобе</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="4 из 5">★★★★☆</div>
+      <p>Товар хороший, но транспортная компания везла дольше обещанного. Магазин был на связи.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">Р</div>
+        <div>
+          <h3>Рустам</h3>
+          <span>Уральск</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Шины свежего года выпуска, без повреждений. Упаковка хорошая.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">В</div>
+        <div>
+          <h3>Владимир</h3>
+          <span>Кокшетау</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Помогли выбрать подходящий размер на зиму. Машина стала мягче и тише.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">А</div>
+        <div>
+          <h3>Асхат</h3>
+          <span>Тараз</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Оплатил через Kaspi, чек и данные по отправке получил сразу.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">И</div>
+        <div>
+          <h3>Игорь</h3>
+          <span>Семей</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="4 из 5">★★★★☆</div>
+      <p>Один диск пришёл с царапиной на коробке. После обращения сделали замену.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">Б</div>
+        <div>
+          <h3>Бауыржан</h3>
+          <span>Жезказган</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Понравилось, что перед отправкой прислали фото товара и маркировки.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">О</div>
+        <div>
+          <h3>Олег</h3>
+          <span>Рудный</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Цены адекватные, менеджер не навязывал дорогие варианты.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">К</div>
+        <div>
+          <h3>Канат</h3>
+          <span>Кызылорда</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Комплект пришёл вовремя. Все размеры совпали с заказом.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">Е</div>
+        <div>
+          <h3>Евгений</h3>
+          <span>Экибастуз</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="4 из 5">★★★★☆</div>
+      <p>При оформлении перепутали цвет дисков, но быстро согласовали замену.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">Т</div>
+        <div>
+          <h3>Тимур</h3>
+          <span>Актау</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Доставка бесплатная при покупке комплекта — это было решающим фактором.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">А</div>
+        <div>
+          <h3>Андрей</h3>
+          <span>Темиртау</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Заказал всесезонные шины. Всё соответствует описанию.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">С</div>
+        <div>
+          <h3>Самат</h3>
+          <span>Талдыкорган</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Очень удобно, что можно написать в WhatsApp и сразу получить подбор.</p>
+    </article>
+    
+    <article class="review-card">
+      <div class="review-top">
+        <div class="review-avatar">М</div>
+        <div>
+          <h3>Михаил</h3>
+          <span>Усть-Каменогорск</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="5 из 5">★★★★★</div>
+      <p>Хороший сервис. После покупки уточнили, всё ли подошло.</p>
+    </article>
+    
+    </div>
+  </div>
+</section>
+
+<section id="contacts" class="contacts">
+  <div class="wrap contact-grid">
+    <div><div class="eyebrow">Магазин Ikos</div><h2>Свяжитесь с нами</h2>
+      <p><strong>Адрес:</strong> ТД «Аврора», ул. Казахстанской Правды, 65, Петропавловск, 150000, Казахстан</p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/77023890318">+7 702 389 03 18</a></p>
+    </div>
+    <a class="btn primary big" href="https://wa.me/77023890318?text=Здравствуйте!%20Хочу%20сделать%20заказ%20в%20Ikos.">Написать в WhatsApp</a>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Ikos. Шины и диски в Казахстане. Цены и наличие уточняйте у менеджера.</div></footer>
+
+<div id="cartModal" class="modal" hidden>
+  <div class="modal-card">
+    <button id="closeCart" class="close">×</button>
+    <h2>Корзина</h2><div id="cartItems"></div>
+    <div class="cart-total">Итого: <strong id="cartTotal">0 ₸</strong></div>
+    <button id="checkout" class="btn primary full">Оформить через WhatsApp</button>
+  </div>
+</div>
+
+<script>
+
+let products=[{"id":1,"category":"Летние шины","name":"Cordiant Road Runner 195/65 R15","brand":"Cordiant","price":18300,"spec":"195/65 R15 • летняя","image":"https://shinline.kz/upload/iblock/297/r9avv4kfi60au83pibhmcb0s1jg17ic9.jpg"},{"id":2,"category":"Летние шины","name":"Wanli SPORT Ultra SA301 205/55 R16 91V","brand":"Wanli","price":18200,"spec":"205/55 R16 91V • летняя","image":"https://shinline.kz/upload/iblock/297/r9avv4kfi60au83pibhmcb0s1jg17ic9.jpg"},{"id":3,"category":"Летние шины","name":"LingLong Green-Max 4x4 HP 235/55 R18 104V","brand":"LingLong","price":33600,"spec":"235/55 R18 104V • SUV • летняя","image":"https://shinline.kz/upload/iblock/dad/4cww9glbu9jy4x0m6dcrloc7i5wq46rx.jpg"},{"id":4,"category":"Летние шины","name":"ATTAR S01 205/65 R16 99V","brand":"ATTAR","price":23000,"spec":"205/65 R16 99V • летняя","image":"https://shinline.kz/upload/iblock/297/r9avv4kfi60au83pibhmcb0s1jg17ic9.jpg"},{"id":5,"category":"Летние шины","name":"IKON Character Eco 215/60 R16 99H","brand":"IKON","price":37000,"spec":"215/60 R16 99H • летняя","image":"https://shinline.kz/upload/iblock/297/r9avv4kfi60au83pibhmcb0s1jg17ic9.jpg"},{"id":6,"category":"Летние шины","name":"Continental PremiumContact 7 225/55 R18 98V","brand":"Continental","price":96000,"spec":"225/55 R18 98V • летняя","image":"https://shinline.kz/upload/iblock/297/r9avv4kfi60au83pibhmcb0s1jg17ic9.jpg"},{"id":7,"category":"Летние шины","name":"Powertrac Racing Pro 245/45 R18 100W","brand":"Powertrac","price":46300,"spec":"245/45 R18 100W • летняя UHP","image":"https://shinline.kz/upload/iblock/297/r9avv4kfi60au83pibhmcb0s1jg17ic9.jpg"},{"id":8,"category":"Летние шины","name":"Hankook Ventus Prime 4 K135 235/50 R19","brand":"Hankook","price":75250,"spec":"235/50 R19 • летняя","image":"https://shinline.kz/upload/iblock/dad/4cww9glbu9jy4x0m6dcrloc7i5wq46rx.jpg"},{"id":9,"category":"Зимние шины","name":"Кама 505 195/65 R15","brand":"Кама","price":37000,"spec":"195/65 R15 • зимняя • шипованная","image":"https://shinline.kz/upload/iblock/7f4/lccdn6ubr6ibfpxb4atg2uszre998eg8.jpg"},{"id":10,"category":"Зимние шины","name":"Powertrac Ice Xpro 205/55 R16 91S","brand":"Powertrac","price":24100,"spec":"205/55 R16 91S • зимняя • нешипованная","image":"https://shinline.kz/upload/iblock/ec8/1bkx16np3lwzrd04up90edlul5ezq476.jpg"},{"id":11,"category":"Зимние шины","name":"SONIX Winter Xpro STUDS 235/55 R18 104T","brand":"SONIX","price":47100,"spec":"235/55 R18 104T • зимняя • шипованная","image":"https://shinline.kz/upload/iblock/7f4/lccdn6ubr6ibfpxb4atg2uszre998eg8.jpg"},{"id":12,"category":"Зимние шины","name":"Michelin X-Ice North 4 235/55 R18","brand":"Michelin","price":134900,"spec":"235/55 R18 • зимняя • шипованная","image":"https://shinline.kz/upload/iblock/7f4/lccdn6ubr6ibfpxb4atg2uszre998eg8.jpg"},{"id":13,"category":"Зимние шины","name":"Petlas Snowmaster 2 185/55 R15 82H","brand":"Petlas","price":20700,"spec":"185/55 R15 82H • зимняя • нешипованная","image":"https://shinline.kz/upload/iblock/ec8/1bkx16np3lwzrd04up90edlul5ezq476.jpg"},{"id":14,"category":"Всесезонные шины","name":"Powertrac Powermarch A-S 225/55 R17 101W","brand":"Powertrac","price":32900,"spec":"225/55 R17 101W • всесезонная","image":"https://shinline.kz/upload/iblock/ec8/1bkx16np3lwzrd04up90edlul5ezq476.jpg"},{"id":15,"category":"Всесезонные шины","name":"Continental AllSeasonContact 205/55 R16 91H","brand":"Continental","price":55700,"spec":"205/55 R16 91H • всесезонная","image":"https://shinline.kz/upload/iblock/ec8/1bkx16np3lwzrd04up90edlul5ezq476.jpg"},{"id":16,"category":"Литые диски","name":"K&K Сансара R18 8.5J 5x114.3 ET38 DIA60.1","brand":"K&K","price":49950,"spec":"R18 • дарк платинум • цена за 1 диск","icon":"⚙️"},{"id":17,"category":"Литые диски","name":"K&K Меконг R18 7.5J 6x139.7 ET42 DIA75.1","brand":"K&K","price":64400,"spec":"R18 • дарк платинум • цена за 1 диск","icon":"⚙️"},{"id":18,"category":"Литые диски","name":"СКАД Багира R16 6.0J 5x114.3 ET54 DIA67.1","brand":"СКАД","price":35000,"spec":"R16 • алмаз • цена за 1 диск","icon":"⚙️"},{"id":19,"category":"Литые диски","name":"СКАД Гамбург R16 6.5J 5x114.3 ET45 DIA67.1","brand":"СКАД","price":32500,"spec":"R16 • селена • цена за 1 диск","icon":"⚙️"},{"id":20,"category":"Литые диски","name":"СКАД Рейнджер R16 7J 6x139.7 ET30 DIA109.7","brand":"СКАД","price":35000,"spec":"R16 • селена • цена за 1 диск","icon":"⚙️"}], cart=[];
+const fmt=n=>new Intl.NumberFormat('ru-RU').format(n)+' ₸';
+function init(){ document.querySelector('#cartModal').hidden=true; document.body.classList.remove('modal-open'); renderFilters(); renderProducts(); updateCart(); }
+function renderFilters(){
+ const cats=['Все',...new Set(products.map(p=>p.category))];
+ document.querySelector('#filters').innerHTML=cats.map((c,i)=>`<button class="filter ${i===0?'active':''}" data-cat="${c}">${c}</button>`).join('');
+ document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProducts()});
+}
+function renderProducts(){
+ const cat=document.querySelector('.filter.active')?.dataset.cat||'Все';
+ const q=document.querySelector('#search').value.toLowerCase();
+ const list=products.filter(p=>(cat==='Все'||p.category===cat)&&(`${p.name} ${p.brand}`.toLowerCase().includes(q)));
+ document.querySelector('#products').innerHTML=list.map(p=>`<article class="product"><div class="product-img">${p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;wheel-art&quot;>IKOS</div>'">`:`<div class="wheel-art">${p.icon||'IKOS'}</div>`}</div><div class="product-body"><div class="product-cat">${p.category} · ${p.brand}</div><h3>${p.name}</h3><div class="spec">${p.spec}</div><div class="price">${fmt(p.price)}</div><button class="btn primary" onclick="add(${p.id})">В корзину</button></div></article>`).join('')||'<p>Ничего не найдено.</p>';
+}
+function add(id){cart.push(products.find(p=>p.id===id));updateCart();}
+function updateCart(){
+ document.querySelector('#cartCount').textContent=cart.length;
+ document.querySelector('#cartItems').innerHTML=cart.length?cart.map((p,i)=>`<div class="cart-line"><span>${p.name}</span><b>${fmt(p.price)}</b><button class="remove" onclick="removeItem(${i})">Удалить</button></div>`).join(''):'<p>Корзина пуста.</p>';
+ document.querySelector('#cartTotal').textContent=fmt(cart.reduce((s,p)=>s+p.price,0));
+}
+function removeItem(i){cart.splice(i,1);updateCart()}
+document.querySelector('#search').addEventListener('input',renderProducts);
+document.querySelector('#cartBtn').onclick=()=>{document.querySelector('#cartModal').hidden=false;document.body.classList.add('modal-open');};
+document.querySelector('#closeCart').onclick=()=>{document.querySelector('#cartModal').hidden=true;document.body.classList.remove('modal-open');};
+document.querySelector('#cartModal').onclick=e=>{if(e.target.id==='cartModal'){e.currentTarget.hidden=true;document.body.classList.remove('modal-open');}};
+document.querySelector('#checkout').onclick=()=>{
+ if(!cart.length)return alert('Добавьте товары в корзину');
+ const lines=cart.map((p,i)=>`${i+1}. ${p.name} — от ${fmt(p.price)}`).join('\n');
+ const total=fmt(cart.reduce((s,p)=>s+p.price,0));
+ const text=`Здравствуйте! Хочу оформить заказ в Ikos:%0A${encodeURIComponent(lines)}%0AПредварительная сумма: ${encodeURIComponent(total)}%0AУточните наличие и итоговую стоимость.`;
+ location.href='https://wa.me/77023890318?text='+text;
+};
+document.querySelector('#finderForm').onsubmit=e=>{
+ e.preventDefault();
+ const car=document.querySelector('#car').value, year=document.querySelector('#year').value, need=document.querySelector('#need').value;
+ const text=encodeURIComponent(`Здравствуйте! Нужен подбор в Ikos.\nАвтомобиль: ${car}\nГод: ${year}\n${need}`);
+ location.href='https://wa.me/77023890318?text='+text;
+};
+init();
+
+</script>
+</body>
+</html>
